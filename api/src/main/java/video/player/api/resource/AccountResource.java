@@ -1,24 +1,24 @@
-package video.player.api.controller;
+package video.player.api.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import video.player.api.entities.Account;
-import video.player.api.repository.AccountRepository;
+import video.player.api.dto.AccountDTO;
+import video.player.api.service.AccountService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/accounts")
-public class AccountController {
+public class AccountResource {
     @Autowired
-    private AccountRepository repository;
+    private AccountService service;
 
     @GetMapping
-    ResponseEntity<List<Account>> findAll(){
-       List<Account> list =  repository.findAll();
+    ResponseEntity<List<AccountDTO>> findAll(){
+       List<AccountDTO> list =  service.findAll();
         return ResponseEntity.ok().body(list);
     }
 }
