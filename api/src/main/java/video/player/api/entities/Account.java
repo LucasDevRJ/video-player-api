@@ -2,12 +2,14 @@ package video.player.api.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_account")
 public class Account implements Serializable {
+    @Serial
     private static final Integer serialVersionUID= 1;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
