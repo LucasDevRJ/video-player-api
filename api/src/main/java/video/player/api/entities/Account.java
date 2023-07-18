@@ -17,14 +17,18 @@ public class Account implements Serializable {
     private String name;
     private String email;
     private String password;
+
+    @OneToOne
+    private Channel channel;
     public Account(){
     }
 
-    public Account(Integer id, String name, String email, String password) {
+    public Account(Integer id, String name, String email, String password, Channel channel) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.channel = channel;
     }
 
     public Integer getId() {
@@ -57,6 +61,14 @@ public class Account implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Channel channel) {
+        this.channel = channel;
     }
 
     @Override
