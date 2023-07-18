@@ -29,10 +29,22 @@ public class Video implements Serializable {
     public String getEmail() {
         return email;
     }
-
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public String getSenha() {
         return senha;
     }
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    public Channel getChannel() {
+        return channel;
+    }
+    public void setChannel(Channel channel) {
+        this.channel = channel;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,6 +52,7 @@ public class Video implements Serializable {
         Channel channel = (Channel) o;
         return id.equals(channel.id);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(id);
