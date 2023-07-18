@@ -49,8 +49,8 @@ public class Video implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Channel channel = (Channel) o;
-        return id.equals(channel.id);
+        Video video = (Video) o;
+        return id.equals(video.id);
     }
 
     @Override
