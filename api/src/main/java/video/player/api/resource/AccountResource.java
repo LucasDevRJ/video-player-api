@@ -3,6 +3,7 @@ package video.player.api.resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import video.player.api.dto.AccountDTO;
@@ -20,5 +21,11 @@ public class AccountResource {
     ResponseEntity<List<AccountDTO>> findAll(){
        List<AccountDTO> list =  service.findAll();
         return ResponseEntity.ok().body(list);
+    }
+
+    @GetMapping(value = "/{id}")
+    ResponseEntity<AccountDTO> findById(@PathVariable Integer id){
+        AccountDTO dto = service.findById(id);
+        return ResponseEntity.ok().body(dto);
     }
 }
