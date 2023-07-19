@@ -11,7 +11,6 @@ import java.util.Objects;
 public class Channel implements Serializable {
     @Serial
     private static final Integer serialVersionUID = 1;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

@@ -1,0 +1,60 @@
+package video.player.api.entities;
+
+import jakarta.persistence.*;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
+@Table(name = "tb_video")
+public class Video implements Serializable {
+    @Serial
+    private static final Integer serialVersionUID = 1;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String email;
+    private String senha;
+    @ManyToOne
+    private Channel channel;
+    public Video() {
+
+    }
+    public Video(String email, String senha, Channel channel) {
+        this.email = email;
+        this.senha = senha;
+        this.channel = channel;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getSenha() {
+        return senha;
+    }
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    public Channel getChannel() {
+        return channel;
+    }
+    public void setChannel(Channel channel) {
+        this.channel = channel;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Video video = (Video) o;
+        return id.equals(video.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+}
