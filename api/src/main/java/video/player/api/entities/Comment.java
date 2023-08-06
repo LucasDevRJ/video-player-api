@@ -18,14 +18,14 @@ public class Comment {
     private Integer id;
     private String title;
     private String description;
-    private int duration;
+    private Integer duration;
     private String urlVideo;
     private Date upload;
     private int numberOfViews;
     @OneToMany
     private List<Comment> comments = new ArrayList();
 
-    public Comment(String title, String description, int duration, String urlVideo, Date upload, int numberOfViews, List<Comment> comments) {
+    public Comment(String title, String description, Integer duration, String urlVideo, Date upload, int numberOfViews, List<Comment> comments) {
         this.title = title;
         this.description = description;
         this.duration = duration;
@@ -55,11 +55,11 @@ public class Comment {
         this.description = description;
     }
 
-    public int getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 

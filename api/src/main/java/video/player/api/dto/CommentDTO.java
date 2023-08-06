@@ -1,55 +1,61 @@
 package video.player.api.dto;
 
+import video.player.api.entities.Comment;
+
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class CommentDTO implements Serializable {
     @Serial
     private static final Integer serialVersionUID= 1;
-    private String titulo;
-    private String descricao;
-    private int duracao;
+    private Integer id;
+    private String title;
+    private String description;
+    private Integer duration;
     private String urlVideo;
     private Date upload;
-    private int numeroVisualizacoes;
-    //private List<Comments> comentarios;
+    private int numberOfViews;
+    private List<Comment> comments = new ArrayList();
 
-    public CommentDTO(String titulo, String descricao, int duracao, String urlVideo, Date upload, int numeroVisualizacoes) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.duracao = duracao;
+    public CommentDTO(String title, String description, Integer duration, String urlVideo, Date upload, int numberOfViews, List<Comment> comments) {
+        this.title = title;
+        this.description = description;
+        this.duration = duration;
         this.urlVideo = urlVideo;
         this.upload = upload;
-        this.numeroVisualizacoes = numeroVisualizacoes;
+        this.numberOfViews = numberOfViews;
+        this.comments = comments;
     }
 
     public CommentDTO() {
 
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public int getDuracao() {
-        return duracao;
+    public Integer getDuration() {
+        return duration;
     }
 
-    public void setDuracao(int duracao) {
-        this.duracao = duracao;
+    public void setDuration(Integer duration) {
+        this.duration = duration;
     }
 
     public String getUrlVideo() {
@@ -68,11 +74,19 @@ public class CommentDTO implements Serializable {
         this.upload = upload;
     }
 
-    public int getNumeroVisualizacoes() {
-        return numeroVisualizacoes;
+    public int getNumberOfViews() {
+        return numberOfViews;
     }
 
-    public void setNumeroVisualizacoes(int numeroVisualizacoes) {
-        this.numeroVisualizacoes = numeroVisualizacoes;
+    public void setNumberOfViews(int numberOfViews) {
+        this.numberOfViews = numberOfViews;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }
