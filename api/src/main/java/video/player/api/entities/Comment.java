@@ -1,16 +1,28 @@
 package video.player.api.entities;
 
+import jakarta.persistence.*;
+
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
+@Entity
+@Table(name = "tb_comment")
 public class Comment {
+    @Serial
+    private static final Integer serialVersionUID = 1;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String title;
     private String description;
     private int duration;
     private String urlVideo;
     private Date upload;
     private int numberOfViews;
+    @OneToMany
     private List<Comment> comments = new ArrayList();
 
     public Comment(String title, String description, int duration, String urlVideo, Date upload, int numberOfViews, List<Comment> comments) {
@@ -73,5 +85,24 @@ public class Comment {
 
     public void setNumberOfViews(int numberOfViews) {
         this.numberOfViews = numberOfViews;
+    }
+    public List<Comment> getComments() {
+        return comments;
+    }
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Comment comment = (Comment) o;
+        return id.equals(comment.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
